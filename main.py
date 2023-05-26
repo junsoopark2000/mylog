@@ -15,6 +15,6 @@ async def main():
 
 
 if __name__ == "__main__":
-    logger.info("main process started")
+    logger.info("program started")
     asyncio.run(main())
-    logger.info("program exit.")
+    logger.info("program finished")

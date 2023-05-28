@@ -1,62 +1,58 @@
+"""
+My log library
+"""
 import os
 import logging
 import logging.handlers
 from dotenv import load_dotenv
 
+
 DEFAULT_LOG_FILE = "./default.log"
-
-_log_format = "%(asctime)s [%(levelname)8s] - %(name)8s.(%(lineno)3d) - %(message)s"
-
-# Load environment variables from .env file
-load_dotenv()
-
-# Define log levels
-LOG_STRATEGY = {
-    "DEBUG": logging.DEBUG,
-    "INFO": logging.INFO,
-    "WARNING": logging.WARNING,
-    "ERROR": logging.ERROR,
-    "CRITICAL": logging.CRITICAL,
-}
-
-# Get the log level from the environment variable or set it to INFO by default
-_logger_level = LOG_STRATEGY.get(os.getenv("LOG_LEVEL"), logging.INFO)
-
-# Get the log file path and name from the environment variable
-_filename = os.getenv("LOG_PATH_AND_FILENAME")
-
-if _filename is None:
-    print(
-        f"LOG_PATH_AND_FILENAME is NOT DEFINED. set to default log path and file{DEFAULT_LOG_FILE}"
-    )
-
-_file_handler_level = logging.DEBUG
-_stream_handler_level = logging.DEBUG
+LOG_FORMAT = "%(asctime)s [%(levelname)-8s] - %(name)8s.(%(lineno)3d) - %(message)s"
+DATE_FMT = "%Y/%m/%d %H:%M:%S"
 
 
 def get_stream_handler():
+    """returns a stream handler"""
     stream_handler = logging.StreamHandler()
-    stream_handler.setLevel(_stream_handler_level)
-    stream_handler.setFormatter(
-        logging.Formatter(_log_format, datefmt="%Y/%m/%d %H:%M:%S")
-    )
+    stream_handler.setLevel(logging.DEBUG)
+    stream_handler.setFormatter(logging.Formatter(LOG_FORMAT, datefmt=DATE_FMT))
     return stream_handler
 
 
 def get_file_handler():
+    """returns a file handler"""
     file_handler = logging.handlers.TimedRotatingFileHandler(
-        _filename, when="d", interval=1, backupCount=0
+        filename=get_log_path_file(), when="d", interval=1, backupCount=0
     )
-    file_handler.setLevel(_file_handler_level)
-    file_handler.setFormatter(
-        logging.Formatter(_log_format, datefmt="%Y/%m/%d %H:%M:%S")
-    )
+    file_handler.setLevel(logging.DEBUG)
+    file_handler.setFormatter(logging.Formatter(LOG_FORMAT, datefmt=DATE_FMT))
     return file_handler
 
 
+def get_log_path_file() -> str:
+    """get log path and filename"""
+    path_and_filename: str = os.getenv("LOG_PATH_AND_FILENAME")
+    return DEFAULT_LOG_FILE if path_and_filename is None else path_and_filename
+
+
+def get_log_level_in_config() -> int:
+    """Returns: logging.DEBUG | logging.INFO | logging.WARNING | logging.ERROR | logging.CRITICAL"""
+    load_dotenv()
+    log_strategies = {
+        "DEBUG": logging.DEBUG,
+        "INFO": logging.INFO,
+        "WARNING": logging.WARNING,
+        "ERROR": logging.ERROR,
+        "CRITICAL": logging.CRITICAL,
+    }
+    return log_strategies.get(os.getenv("LOG_LEVEL").upper(), logging.INFO)
+
+
 def get_logger(name: str) -> logging.Logger:
+    """returns a logger for each module(.py)"""
     logger = logging.getLogger(name)
-    logger.setLevel(_logger_level)
+    logger.setLevel(get_log_level_in_config())
     logger.addHandler(get_stream_handler())
     logger.addHandler(get_file_handler())
     return logger

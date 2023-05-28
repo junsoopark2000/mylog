@@ -1,5 +1,10 @@
 """
-My log library
+********************************************************
+How to use in a module:
+    import mylog
+    logger = mylog.get_logger(__name__)
+    logger.info(),...
+********************************************************
 """
 import os
 import logging

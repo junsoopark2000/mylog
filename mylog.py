@@ -1,5 +1,4 @@
 import os
-import sys
 import logging
 import logging.handlers
 from dotenv import load_dotenv
@@ -12,7 +11,7 @@ _log_format = "%(asctime)s [%(levelname)8s] - %(name)8s.(%(lineno)3d) - %(messag
 load_dotenv()
 
 # Define log levels
-log_level_in_environment = {
+LOG_STRATEGY = {
     "DEBUG": logging.DEBUG,
     "INFO": logging.INFO,
     "WARNING": logging.WARNING,
@@ -21,7 +20,7 @@ log_level_in_environment = {
 }
 
 # Get the log level from the environment variable or set it to INFO by default
-_logger_level = log_level_in_environment.get(os.getenv("LOG_LEVEL"), logging.INFO)
+_logger_level = LOG_STRATEGY.get(os.getenv("LOG_LEVEL"), logging.INFO)
 
 # Get the log file path and name from the environment variable
 _filename = os.getenv("LOG_PATH_AND_FILENAME")
@@ -30,7 +29,6 @@ if _filename is None:
     print(
         f"LOG_PATH_AND_FILENAME is NOT DEFINED. set to default log path and file{DEFAULT_LOG_FILE}"
     )
-    _filename = DEFAULT_LOG_FILE
 
 _file_handler_level = logging.DEBUG
 _stream_handler_level = logging.DEBUG
@@ -47,7 +45,7 @@ def get_stream_handler():
 
 def get_file_handler():
     file_handler = logging.handlers.TimedRotatingFileHandler(
-        _filename, when="h", interval=1, backupCount=0
+        _filename, when="d", interval=1, backupCount=0
     )
     file_handler.setLevel(_file_handler_level)
     file_handler.setFormatter(

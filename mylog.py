@@ -12,6 +12,7 @@ env Environment variable required in .env:
   LOG_PRINT_ON_FILE=true  #true|false
 
 Log file name: "app.log"
+Dependencies : python-dotenv
 ------------------------------------------------------------------
 """
 import os
@@ -49,15 +50,12 @@ def get_file_handler():
 def get_log_path_file() -> str:
     """get log path and filename"""
 
-    log_path: str = os.getenv("LOG_PATH")
+    log_path = os.getenv("LOG_PATH", DEFAULT_LOG_PATH)
 
-    if log_path is None or not log_path:  # undefined or empty string
-        log_path = os.getcwd()
-
-    elif not os.path.exists(log_path):
+    if not os.path.exists(log_path):
         os.makedirs(log_path, exist_ok=True)
 
-    return f"{log_path}/{LOG_FILE_NAME}"
+    return os.path.join(log_path, LOG_FILE_NAME)
 
 
 def get_log_level_in_config() -> int:
@@ -71,7 +69,7 @@ def get_log_level_in_config() -> int:
         "critical": logging.CRITICAL,
     }
 
-    return log_strategies.get(os.getenv("LOG_LEVEL").lower(), logging.INFO)
+    return log_strategies.get(os.getenv("LOG_LEVEL", "").lower(), logging.INFO)
 
 
 def get_logger(name: str) -> logging.Logger:

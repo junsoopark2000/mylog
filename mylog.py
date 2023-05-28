@@ -1,10 +1,18 @@
 """
-********************************************************
+------------------------------------------------------------------
 How to use in a module:
-    import mylog
-    logger = mylog.get_logger(__name__)
-    logger.info(),...
-********************************************************
+  import mylog
+  logger = mylog.get_logger(__name__)
+  logger.info(),...
+
+env Environment variable required in .env:
+  LOG_PATH=/some/path
+  LOG_LEVEL=debug #critical|error|warning|info|debug
+  LOG_PRINT_ON_CONSOLE=true  #true|false
+  LOG_PRINT_ON_FILE=true  #true|false
+
+Log file name: "app.log"
+------------------------------------------------------------------
 """
 import os
 import logging

@@ -5,7 +5,7 @@ logger = mylog.get_logger(__name__)
 
 
 async def f2():
-    for _ in range(2000):
+    for _ in range(1):
         logger.debug("I am f2 in module2")
         logger.info("I am f2 in module2")
         logger.warning("I am f2 in module2")

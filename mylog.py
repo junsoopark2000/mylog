@@ -1,87 +1,76 @@
-"""
-------------------------------------------------------------------
-How to use in a module:
-  import mylog
-  logger = mylog.get_logger(__name__)
-  logger.info(),...
-
-env Environment variable required in .env:
-  LOG_PATH=/some/path
-  LOG_LEVEL=debug #critical|error|warning|info|debug
-  LOG_PRINT_ON_CONSOLE=true  #true|false
-  LOG_PRINT_ON_FILE=true  #true|false
-
-Log file name: "app.log"
-Dependencies : python-dotenv
-------------------------------------------------------------------
-"""
 import os
 import logging
 import logging.handlers
-from dotenv import load_dotenv
+from config import Config
 
 
-DEFAULT_LOG_PATH = "./"
-LOG_FILE_NAME = "app.log"
 LOG_FORMAT = "%(asctime)s [%(levelname)-8s] - %(name)8s.(%(lineno)3d) - %(message)s"
 DATE_FMT = "%Y/%m/%d %H:%M:%S"
 
-load_dotenv()
-
 
 def get_stream_handler():
-    """returns a stream handler"""
     stream_handler = logging.StreamHandler()
     stream_handler.setLevel(logging.DEBUG)
     stream_handler.setFormatter(logging.Formatter(LOG_FORMAT, datefmt=DATE_FMT))
     return stream_handler
 
 
-def get_file_handler():
-    """returns a file handler"""
+def get_file_handler(log_file: str):
     file_handler = logging.handlers.TimedRotatingFileHandler(
-        filename=get_log_path_file(), when="d", interval=1, backupCount=0
+        filename=log_file, when="d", interval=1, backupCount=0
     )
     file_handler.setLevel(logging.DEBUG)
     file_handler.setFormatter(logging.Formatter(LOG_FORMAT, datefmt=DATE_FMT))
     return file_handler
 
 
-def get_log_path_file() -> str:
-    """get log path and filename"""
-
-    log_path = os.getenv("LOG_PATH", DEFAULT_LOG_PATH)
-
-    if not os.path.exists(log_path):
-        os.makedirs(log_path, exist_ok=True)
-
-    return os.path.join(log_path, LOG_FILE_NAME)
+def get_log_path_file(cfg: Config) -> tuple:
+    return (
+        cfg.get_config_value("logging", "path"),
+        cfg.get_config_value("logging", "filename"),
+    )
 
 
-def get_log_level_in_config() -> int:
-    """Returns: logging.DEBUG | logging.INFO | logging.WARNING | logging.ERROR | logging.CRITICAL"""
-
-    log_strategies = {
+def get_log_strategy(cfg: Config) -> int:
+    strategies = {
         "debug": logging.DEBUG,
         "info": logging.INFO,
         "warning": logging.WARNING,
         "error": logging.ERROR,
         "critical": logging.CRITICAL,
     }
+    return strategies.get(
+        cfg.get_config_value("logging", "level").lower(), logging.INFO
+    )
 
-    return log_strategies.get(os.getenv("LOG_LEVEL", "").lower(), logging.INFO)
+
+def should_log_to_console(cfg: Config) -> bool:
+    return cfg.get_config_value("logging", "to_console")
+
+
+def should_log_to_file(cfg: Config) -> bool:
+    return cfg.get_config_value("logging", "to_file")
 
 
 def get_logger(name: str) -> logging.Logger:
-    """returns a logger for each module(.py)"""
-
     logger = logging.getLogger(name)
-    logger.setLevel(get_log_level_in_config())
 
-    if os.getenv("LOG_PRINT_ON_FILE").lower() == "true":
-        logger.addHandler(get_file_handler())
+    conf = Config()
+    logger.setLevel(get_log_strategy(conf))
 
-    if os.getenv("LOG_PRINT_ON_CONSOLE").lower() == "true":
+    if should_log_to_console(conf):
         logger.addHandler(get_stream_handler())
+
+    if should_log_to_file(conf):
+        log_path, log_filename = get_log_path_file(conf)
+
+        if not os.path.exists(log_path):
+            if conf.get_config_value("logging", "create_folder"):
+                os.makedirs(log_path, exist_ok=True)
+            else:
+                print("Logging folder not found. Exiting...")
+                exit(-1)
+
+        logger.addHandler(get_file_handler(os.path.join(log_path, log_filename)))
 
     return logger

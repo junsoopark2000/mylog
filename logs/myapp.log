@@ -1,0 +1,110 @@
+2023/06/11 14:16:59 [INFO    ] - __main__.( 18) - program started
+2023/06/11 14:16:59 [DEBUG   ] - sub_module1.(  9) - I am f1 in module1
+2023/06/11 14:16:59 [INFO    ] - sub_module1.( 10) - I am f1 in module1
+2023/06/11 14:16:59 [WARNING ] - sub_module1.( 11) - I am f1 in module1
+2023/06/11 14:16:59 [ERROR   ] - sub_module1.( 12) - I am f1 in module1
+2023/06/11 14:16:59 [CRITICAL] - sub_module1.( 13) - I am f1 in module1
+2023/06/11 14:17:02 [INFO    ] - sub_module1.( 15) - sub module 1 DONE
+2023/06/11 14:17:02 [INFO    ] - __main__.( 20) - program finished
+2023/06/11 14:17:57 [INFO    ] - __main__.( 18) - program started
+2023/06/11 14:17:57 [DEBUG   ] - sub_module1.(  9) - I am f1 in module1
+2023/06/11 14:17:57 [INFO    ] - sub_module1.( 10) - I am f1 in module1
+2023/06/11 14:17:57 [WARNING ] - sub_module1.( 11) - I am f1 in module1
+2023/06/11 14:17:57 [ERROR   ] - sub_module1.( 12) - I am f1 in module1
+2023/06/11 14:17:57 [CRITICAL] - sub_module1.( 13) - I am f1 in module1
+2023/06/11 14:18:00 [INFO    ] - sub_module1.( 15) - sub module 1 DONE
+2023/06/11 14:18:00 [INFO    ] - __main__.( 20) - program finished
+2023/06/11 14:19:32 [INFO    ] - __main__.( 18) - program started
+2023/06/11 14:19:32 [DEBUG   ] - sub_module1.(  9) - I am f1 in module1
+2023/06/11 14:19:32 [INFO    ] - sub_module1.( 10) - I am f1 in module1
+2023/06/11 14:19:32 [WARNING ] - sub_module1.( 11) - I am f1 in module1
+2023/06/11 14:19:32 [ERROR   ] - sub_module1.( 12) - I am f1 in module1
+2023/06/11 14:19:32 [CRITICAL] - sub_module1.( 13) - I am f1 in module1
+2023/06/11 14:19:35 [INFO    ] - sub_module1.( 15) - sub module 1 DONE
+2023/06/11 14:19:35 [INFO    ] - __main__.( 20) - program finished
+2023/06/11 14:20:18 [INFO    ] - __main__.( 18) - program started
+2023/06/11 14:20:18 [DEBUG   ] - sub_module1.(  9) - I am f1 in module1
+2023/06/11 14:20:18 [INFO    ] - sub_module1.( 10) - I am f1 in module1
+2023/06/11 14:20:18 [WARNING ] - sub_module1.( 11) - I am f1 in module1
+2023/06/11 14:20:18 [ERROR   ] - sub_module1.( 12) - I am f1 in module1
+2023/06/11 14:20:18 [CRITICAL] - sub_module1.( 13) - I am f1 in module1
+2023/06/11 14:20:21 [INFO    ] - sub_module1.( 15) - sub module 1 DONE
+2023/06/11 14:20:21 [INFO    ] - __main__.( 20) - program finished
+2023/06/11 14:20:38 [INFO    ] - __main__.( 18) - program started
+2023/06/11 14:20:38 [DEBUG   ] - sub_module1.(  9) - I am f1 in module1
+2023/06/11 14:20:38 [INFO    ] - sub_module1.( 10) - I am f1 in module1
+2023/06/11 14:20:38 [WARNING ] - sub_module1.( 11) - I am f1 in module1
+2023/06/11 14:20:38 [ERROR   ] - sub_module1.( 12) - I am f1 in module1
+2023/06/11 14:20:38 [CRITICAL] - sub_module1.( 13) - I am f1 in module1
+2023/06/11 14:20:41 [INFO    ] - sub_module1.( 15) - sub module 1 DONE
+2023/06/11 14:20:41 [INFO    ] - __main__.( 20) - program finished
+2023/06/11 14:20:46 [INFO    ] - __main__.( 18) - program started
+2023/06/11 14:20:46 [DEBUG   ] - sub_module1.(  9) - I am f1 in module1
+2023/06/11 14:20:46 [INFO    ] - sub_module1.( 10) - I am f1 in module1
+2023/06/11 14:20:46 [WARNING ] - sub_module1.( 11) - I am f1 in module1
+2023/06/11 14:20:46 [ERROR   ] - sub_module1.( 12) - I am f1 in module1
+2023/06/11 14:20:46 [CRITICAL] - sub_module1.( 13) - I am f1 in module1
+2023/06/11 14:20:49 [INFO    ] - sub_module1.( 15) - sub module 1 DONE
+2023/06/11 14:20:49 [INFO    ] - __main__.( 20) - program finished
+2023/06/11 14:20:57 [INFO    ] - __main__.( 18) - program started
+2023/06/11 14:20:57 [INFO    ] - sub_module1.( 10) - I am f1 in module1
+2023/06/11 14:20:57 [WARNING ] - sub_module1.( 11) - I am f1 in module1
+2023/06/11 14:20:57 [ERROR   ] - sub_module1.( 12) - I am f1 in module1
+2023/06/11 14:20:57 [CRITICAL] - sub_module1.( 13) - I am f1 in module1
+2023/06/11 14:21:00 [INFO    ] - sub_module1.( 15) - sub module 1 DONE
+2023/06/11 14:21:00 [INFO    ] - __main__.( 20) - program finished
+2023/06/11 14:21:10 [WARNING ] - sub_module1.( 11) - I am f1 in module1
+2023/06/11 14:21:10 [ERROR   ] - sub_module1.( 12) - I am f1 in module1
+2023/06/11 14:21:10 [CRITICAL] - sub_module1.( 13) - I am f1 in module1
+2023/06/11 14:21:19 [ERROR   ] - sub_module1.( 12) - I am f1 in module1
+2023/06/11 14:21:19 [CRITICAL] - sub_module1.( 13) - I am f1 in module1
+2023/06/11 14:21:26 [CRITICAL] - sub_module1.( 13) - I am f1 in module1
+2023/06/11 14:21:33 [INFO    ] - __main__.( 18) - program started
+2023/06/11 14:21:33 [INFO    ] - sub_module1.( 10) - I am f1 in module1
+2023/06/11 14:21:33 [WARNING ] - sub_module1.( 11) - I am f1 in module1
+2023/06/11 14:21:33 [ERROR   ] - sub_module1.( 12) - I am f1 in module1
+2023/06/11 14:21:33 [CRITICAL] - sub_module1.( 13) - I am f1 in module1
+2023/06/11 14:21:36 [INFO    ] - sub_module1.( 15) - sub module 1 DONE
+2023/06/11 14:21:36 [INFO    ] - __main__.( 20) - program finished
+2023/06/11 14:25:21 [INFO    ] - __main__.( 18) - program started
+2023/06/11 14:25:21 [INFO    ] - sub_module1.( 10) - I am f1 in module1
+2023/06/11 14:25:21 [WARNING ] - sub_module1.( 11) - I am f1 in module1
+2023/06/11 14:25:21 [ERROR   ] - sub_module1.( 12) - I am f1 in module1
+2023/06/11 14:25:21 [CRITICAL] - sub_module1.( 13) - I am f1 in module1
+2023/06/11 14:25:24 [INFO    ] - sub_module1.( 15) - sub module 1 DONE
+2023/06/11 14:25:24 [INFO    ] - __main__.( 20) - program finished
+2023/06/11 14:25:35 [WARNING ] - sub_module1.( 11) - I am f1 in module1
+2023/06/11 14:25:35 [ERROR   ] - sub_module1.( 12) - I am f1 in module1
+2023/06/11 14:25:35 [CRITICAL] - sub_module1.( 13) - I am f1 in module1
+2023/06/11 14:25:49 [INFO    ] - __main__.( 18) - program started
+2023/06/11 14:25:49 [DEBUG   ] - sub_module1.(  9) - I am f1 in module1
+2023/06/11 14:25:49 [INFO    ] - sub_module1.( 10) - I am f1 in module1
+2023/06/11 14:25:49 [WARNING ] - sub_module1.( 11) - I am f1 in module1
+2023/06/11 14:25:49 [ERROR   ] - sub_module1.( 12) - I am f1 in module1
+2023/06/11 14:25:49 [CRITICAL] - sub_module1.( 13) - I am f1 in module1
+2023/06/11 14:25:52 [INFO    ] - sub_module1.( 15) - sub module 1 DONE
+2023/06/11 14:25:52 [INFO    ] - __main__.( 20) - program finished
+2023/06/11 14:25:57 [INFO    ] - __main__.( 18) - program started
+2023/06/11 14:25:57 [DEBUG   ] - sub_module1.(  9) - I am f1 in module1
+2023/06/11 14:25:57 [INFO    ] - sub_module1.( 10) - I am f1 in module1
+2023/06/11 14:25:57 [WARNING ] - sub_module1.( 11) - I am f1 in module1
+2023/06/11 14:25:57 [ERROR   ] - sub_module1.( 12) - I am f1 in module1
+2023/06/11 14:25:57 [CRITICAL] - sub_module1.( 13) - I am f1 in module1
+2023/06/11 14:26:00 [INFO    ] - sub_module1.( 15) - sub module 1 DONE
+2023/06/11 14:26:00 [INFO    ] - __main__.( 20) - program finished
+2023/06/11 14:26:23 [INFO    ] - __main__.( 18) - program started
+2023/06/11 14:26:23 [DEBUG   ] - sub_module1.(  9) - I am f1 in module1
+2023/06/11 14:26:23 [INFO    ] - sub_module1.( 10) - I am f1 in module1
+2023/06/11 14:26:23 [WARNING ] - sub_module1.( 11) - I am f1 in module1
+2023/06/11 14:26:23 [ERROR   ] - sub_module1.( 12) - I am f1 in module1
+2023/06/11 14:26:23 [CRITICAL] - sub_module1.( 13) - I am f1 in module1
+2023/06/11 14:26:26 [INFO    ] - sub_module1.( 15) - sub module 1 DONE
+2023/06/11 14:26:26 [INFO    ] - __main__.( 20) - program finished
+2023/06/11 14:53:04 [INFO    ] - __main__.( 18) - program started
+2023/06/11 14:53:04 [DEBUG   ] - sub_module1.(  9) - I am f1 in module1
+2023/06/11 14:53:04 [INFO    ] - sub_module1.( 10) - I am f1 in module1
+2023/06/11 14:53:04 [WARNING ] - sub_module1.( 11) - I am f1 in module1
+2023/06/11 14:53:04 [ERROR   ] - sub_module1.( 12) - I am f1 in module1
+2023/06/11 14:53:04 [CRITICAL] - sub_module1.( 13) - I am f1 in module1
+2023/06/11 14:53:07 [INFO    ] - sub_module1.( 15) - sub module 1 DONE
+2023/06/11 14:53:07 [INFO    ] - __main__.( 20) - program finished

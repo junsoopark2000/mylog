@@ -1,0 +1,11 @@
+logging:
+  level: debug # debug | info | warning | error | critical
+  to_console: false
+  to_file: true
+  path: ./logs
+  create_folder: true
+  filename: myapp.log
+
+api:
+  endpoint: https://api.example.com
+  timeout: 10
